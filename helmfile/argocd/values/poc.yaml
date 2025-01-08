@@ -1,14 +1,17 @@
-configs:
-  cmp:
-    create: true
-    plugins:
-      helmfile:
-        discover:
-          filename: ./helmfile.yaml
-        generate:
-          args:
-            - -q
-            - template
-            - --include-crds
-          command:
-            - helmfile
+repoServer:
+  replicas: 2
+  extraContainers:
+    - name: plugin
+      image: lucj/argocd-plugin-helmfile:latest
+      command: ["/var/run/argocd/argocd-cmp-server"]
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 999
+      volumeMounts:
+        - mountPath: /var/run/argocd
+          name: var-files
+        - mountPath: /home/argocd/cmp-server/plugins
+          name: plugins
+      env:
+        - name: ENV_NAME
+          value: poc
