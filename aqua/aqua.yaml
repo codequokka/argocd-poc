@@ -12,9 +12,9 @@ registries:
   ref: v4.292.0  # renovate: depName=aquaproj/aqua-registry
 packages:
   # - name: nektos/act@v0.2.70
-  # - name: FiloSottile/age@v1.2.1
+  - name: FiloSottile/age@v1.2.1
   - name: argoproj/argo-cd@v2.13.3
-  # - name: direnv/direnv@v2.35.0
+  - name: direnv/direnv@v2.35.0
   # - name: goss-org/goss@v0.4.9
   - name: helm/helm@v3.16.4
   - name: helmfile/helmfile@v0.169.2
@@ -25,5 +25,5 @@ packages:
   # - name: ahmetb/kubectx/kubens@v0.9.5
   # - name: sbstp/kubie@v0.24.0
   # - name: jesseduffield/lazydocker@v0.24.1
-  # - name: getsops/sops@v3.9.2
+  - name: getsops/sops@v3.9.2
   # - name: go-task/task@v3.40.1

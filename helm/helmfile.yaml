@@ -1,7 +1,6 @@
 ---
 environments:
-  poc: {}
+  "{{ .Environment.Name }}": {}
 
 helmfiles:
-  - path: argocd/helmfile.yaml
   - path: github-arc/helmfile.yaml
