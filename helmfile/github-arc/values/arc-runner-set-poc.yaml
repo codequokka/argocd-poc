@@ -1,0 +1,6 @@
+---
+githubConfigUrl: https://github.com/codequokka/argocd-poc
+
+controllerServiceAccount:
+  namespace: arc-systems
+  name: arc-systems-gha-rs-controller
