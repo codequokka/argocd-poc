@@ -1,0 +1,14 @@
+configs:
+  cmp:
+    create: true
+    plugins:
+      helmfile:
+        discover:
+          filename: ./helmfile.yaml
+        generate:
+          args:
+            - -q
+            - template
+            - --include-crds
+          command:
+            - helmfile

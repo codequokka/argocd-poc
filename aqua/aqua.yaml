@@ -13,6 +13,7 @@ registries:
 packages:
   # - name: nektos/act@v0.2.70
   # - name: FiloSottile/age@v1.2.1
+  - name: argoproj/argo-cd@v2.13.3
   # - name: direnv/direnv@v2.35.0
   # - name: goss-org/goss@v0.4.9
   - name: helm/helm@v3.16.4

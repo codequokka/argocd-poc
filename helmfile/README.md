@@ -59,6 +59,14 @@ argocd   argocd      argo/argo-cd   7.7.14       1m14s
 <admin user password>
 
 ❯ kubectl port-forward service/argocd-server --namespace argocd 8080:443 &
+
+❯ argocd login localhost:8080
+WARNING: server certificate had error: tls: failed to verify certificate: x509: certificate signed by unknown authority. Proc
+eed insecurely (y/n)? y
+Username: admin
+Password:
+'admin:login' logged in successfully
+Context 'localhost:8080' updated
 ```
 
 https://localhost:8080/
