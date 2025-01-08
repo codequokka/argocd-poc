@@ -1,5 +1,4 @@
 repoServer:
-  replicas: 2
   extraContainers:
     - name: plugin
       image: lucj/argocd-plugin-helmfile:latest
