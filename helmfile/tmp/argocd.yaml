@@ -23,6 +23,7 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
+      - ServerSideApply=true
   # parameters:
   #   - name: ENV_NAME
   #     value: poc
