@@ -1,4 +1,25 @@
+# repoServer:
+#   extraContainers:
+#     - name: plugin
+#       image: lucj/argocd-plugin-helmfile:latest
+#       command: ["/var/run/argocd/argocd-cmp-server"]
+#       securityContext:
+#         runAsNonRoot: true
+#         runAsUser: 999
+#       volumeMounts:
+#         - mountPath: /var/run/argocd
+#           name: var-files
+#         - mountPath: /home/argocd/cmp-server/plugins
+#           name: plugins
+#       env:
+#         - name: ENV_NAME
+#           value: poc
+
 repoServer:
+  volumes:
+    - name: age
+      secret:
+        secretName: age
   extraContainers:
     - name: plugin
       image: lucj/argocd-plugin-helmfile:latest
@@ -6,11 +27,15 @@ repoServer:
       securityContext:
         runAsNonRoot: true
         runAsUser: 999
+      env:
+        - name: SOPS_AGE_KEY_FILE
+          value: /app/config/age/key.txt
+        - name: ENV_NAME
+          value: poc
       volumeMounts:
+        - name: age
+          mountPath: "/app/config/age/"
         - mountPath: /var/run/argocd
           name: var-files
         - mountPath: /home/argocd/cmp-server/plugins
           name: plugins
-      env:
-        - name: ENV_NAME
-          value: poc
