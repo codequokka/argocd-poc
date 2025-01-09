@@ -17,6 +17,7 @@ releases:
     needs:
       - arc-systems/arc-systems
     values:
+      - values/arc-systems-{{ .Environment.Name }}.yaml
       - values/arc-runner-set-{{ .Environment.Name }}.yaml
     secrets:
       - secrets/arc-runner-set-{{ .Environment.Name }}.yaml
