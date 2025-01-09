@@ -18,6 +18,14 @@ secrets 4.6.3-dev       This plugin provides secrets values encryption for Helm 
 ```console
 ❯ cd helmfile
 
+❯ age-keygen -o key.txt
+
+❯ rm github-arc/secrets/arc-runner-set-poc.yaml
+
+❯ vi github-arc/secrets/arc-runner-set-poc.yaml
+
+❯ helm secrets encrypt -i github-arc/secrets/arc-runner-set-poc.yaml
+
 ❯ helmfile diff --environment $HELM_ENVIRONMENT
 <omit>
 

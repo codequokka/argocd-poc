@@ -24,7 +24,7 @@ releases:
           - "-ec"
           - |
             # Create a sops / age secret key if none already exists
-            if [[ -f ./key.txt ]]; then
+            if [[ -f ../key.txt ]]; then
               echo "age key.txt file already exists"
             else
               age-keygen > ./key.txt
