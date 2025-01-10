@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: argocd
+  name: my-apps
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -10,13 +10,11 @@ spec:
   project: default
   source:
     repoURL: https://github.com/codequokka/argocd-poc.git
-    targetRevision: setup-helmfile-plugin
-    # targetRevision: main
+    targetRevision: setup-helmfile-plugin # main
     path: helmfile
     plugin: {}
   destination:
     server: https://kubernetes.default.svc
-    # namespace: argocd
   syncPolicy:
     automated:
       prune: true
@@ -24,6 +22,3 @@ spec:
     syncOptions:
       - CreateNamespace=true
       - ServerSideApply=true
-  # parameters:
-  #   - name: ENV_NAME
-  #     value: poc

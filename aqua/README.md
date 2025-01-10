@@ -1,7 +1,8 @@
-# How to install required commands
-
+# Install required commands
+## Installl required commands with aqua
 ```console
 ❯ cd aqua
 
-❯ aqua install
+❯ ./install_aqua.sh
+<omit>
 ```

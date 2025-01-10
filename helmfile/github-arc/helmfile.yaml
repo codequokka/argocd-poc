@@ -7,16 +7,17 @@ releases:
   - name: arc-systems
     namespace: arc-systems
     chart: oci://ghcr.io/actions/actions-runner-controller-charts/gha-runner-scale-set-controller
-    version: 0.9.2
+    version:  0.10.1
 
   - name: arc-runner-set
     namespace: arc-runners
     chart: oci://ghcr.io/actions/actions-runner-controller-charts/gha-runner-scale-set
-    version: 0.9.2
+    version:  0.10.1
     disableValidationOnInstall: true
     needs:
       - arc-systems/arc-systems
     values:
+      - values/arc-systems-{{ .Environment.Name }}.yaml
       - values/arc-runner-set-{{ .Environment.Name }}.yaml
     secrets:
       - secrets/arc-runner-set-{{ .Environment.Name }}.yaml
