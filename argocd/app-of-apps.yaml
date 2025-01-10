@@ -9,7 +9,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/codequokka/argocd-poc.gi
+    repoURL: https://github.com/codequokka/argocd-poc.git
     targetRevision: app-of-apps-test
     path: argocd/apps
   destination:
