@@ -9,9 +9,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/argoproj/argocd-example-apps.git
-    targetRevision: master
-    path: apps
+    repoURL: https://github.com/codequokka/argocd-poc.gi
+    targetRevision: app-of-apps-test
+    path: argocd/apps
   destination:
     server: https://kubernetes.default.svc
   syncPolicy:
