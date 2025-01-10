@@ -19,7 +19,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: github-arc
+  name: argocd
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -28,7 +28,7 @@ spec:
   source:
     repoURL: https://github.com/codequokka/argocd-poc.git
     targetRevision: app-of-apps-test # main
-    path: helmfile
+    path: helmfile/argocd
     plugin: {}
   destination:
     server: {{ .Values.spec.destination.server }}
