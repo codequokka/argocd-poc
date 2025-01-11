@@ -4,4 +4,4 @@ environments:
 
 helmfiles:
   - path: argocd/helmfile.yaml
-  # - path: github-arc/helmfile.yaml
+  - path: github-arc/helmfile.yaml
