@@ -1,6 +1,8 @@
 # Create the k8s cluster
 ## Create the k8s cluster with kind
 ```console
+❯ source .envrc
+
 ❯ cd kind
 
 ❯ kind create cluster --config config.yaml
