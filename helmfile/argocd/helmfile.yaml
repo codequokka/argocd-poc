@@ -13,31 +13,36 @@ releases:
   - name: argocd
     namespace: argocd
     chart: argo/argo-cd
+    version: 7.7.15
     values:
       - values/{{ .Environment.Name }}.yaml
 
     hooks:
       - events: ["presync"]
         showlogs: true
-        command: "/bin/bash"
+        command: /bin/bash
         args:
-          - "-ec"
+          - -ec
           - |
-            # Create a sops / age secret key if none already exists
+            # Create an age key if it does not exist
             if [[ -f ../key.txt ]]; then
-              echo "age key.txt file already exists"
+              echo 'Use an existing age key'
             else
+              echo 'Create an age key'
               age-keygen > ./key.txt
             fi
 
-            # Create secret to give Argo access to the age key
-            kubectl create ns argocd || true
-            kubectl -n argocd create secret generic age --from-file=key.txt=../key.txt || true
+            # Create a secret to give Argo access to the age key
+            kubectl create ns argocd
+            kubectl -n argocd create secret generic age --from-file=key.txt=../key.txt
       - events: ["postuninstall"]
         showlogs: true
         command: "/bin/bash"
         args:
-          - "-ec"
+          - -ec
           - |
             # Remove secret created in the presync hook
             kubectl -n argocd delete secret age
+
+            # Remove namespace
+            kubectl delete namespace argocd
