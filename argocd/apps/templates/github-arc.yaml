@@ -28,7 +28,7 @@ spec:
     path: helmfile/github-arc
     plugin: {}
   destination:
-    server: { { .Values.spec.destination.server } }
+    server: {{ .Values.spec.destination.server }}
   syncPolicy:
     automated:
       prune: true
