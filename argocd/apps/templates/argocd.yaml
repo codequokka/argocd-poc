@@ -9,8 +9,8 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/codequokka/argocd-poc.git
-    targetRevision: app-of-apps-test # main
+    repoURL: {{ .Values.spec.source.repoURL }}
+    targetRevision: {{ .Values.spec.source.targetRevision }}
     path: helmfile/argocd
     plugin: {}
   destination:
