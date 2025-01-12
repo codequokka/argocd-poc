@@ -1,8 +1,22 @@
 ---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: arc-systems
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: arc-runners
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
+---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: argocd
+  name: github-arc
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -11,7 +25,7 @@ spec:
   source:
     repoURL: https://github.com/codequokka/argocd-poc.git
     targetRevision: app-of-apps-test # main
-    path: helmfile/argocd
+    path: helmfile/github-arc
     plugin: {}
   destination:
     server: {{ .Values.spec.destination.server }}

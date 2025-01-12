@@ -1,3 +1,7 @@
+configs:
+  cm:
+    application.resourceTrackingMethod: annotation
+
 repoServer:
   volumes:
     - name: age

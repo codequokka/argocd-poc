@@ -1,8 +1,8 @@
 ---
 githubConfigUrl: https://github.com/codequokka/argocd-poc
 
-minRunners: 1
-maxRunners: 1
+minRunners: 2
+maxRunners: 2
 
 controllerServiceAccount:
   namespace: arc-systems
