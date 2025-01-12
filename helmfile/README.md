@@ -1,6 +1,6 @@
 # Deploy apps with argocd & helmfile
 
-## Install required plugins
+## Install required helm plugins
 
 ```console
 ❯ helm plugin install https://github.com/databus23/helm-diff
