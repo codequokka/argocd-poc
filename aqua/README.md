@@ -1,5 +1,7 @@
 # Install required commands
+
 ## Install aqua and required commands
+
 ```console
 ❯ cd aqua
 
