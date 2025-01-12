@@ -10,7 +10,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/codequokka/argocd-poc.git
-    targetRevision: app-of-apps-test
+    targetRevision: refactoring
     path: argocd/apps
   destination:
     server: https://kubernetes.default.svc
@@ -21,10 +21,3 @@ spec:
     syncOptions:
       - CreateNamespace=true
       - ServerSideApply=true
-
-# argocd app create apps \
-#     --dest-namespace argocd \
-#     --dest-server https://kubernetes.default.svc \
-#     --repo https://github.com/argoproj/argocd-example-apps.git \
-#     --path apps
-# argocd app sync apps
