@@ -1,6 +1,10 @@
 # Create the k8s cluster
+
 ## Create the k8s cluster with kind
+
 ```console
+❯ source .envrc
+
 ❯ cd kind
 
 ❯ kind create cluster --config config.yaml
@@ -21,6 +25,7 @@ Not sure what to do next? 😅  Check out https://kind.sigs.k8s.io/docs/user/qui
 ```
 
 ## Check all nodes are ready
+
 ```console
 ❯ kubectl get nodes
 NAME                       STATUS   ROLES           AGE   VERSION
