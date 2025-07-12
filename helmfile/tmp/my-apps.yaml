@@ -10,7 +10,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/codequokka/argocd-poc.git
-    targetRevision: setup-helmfile-plugin # main
+    targetRevision: refactor-helmfile # main
     path: helmfile
     plugin: {}
   destination:
