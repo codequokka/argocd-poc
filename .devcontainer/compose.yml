@@ -1,0 +1,14 @@
+---
+services:
+  gemini-cli:
+    build:
+      context: gemini-cli/
+      dockerfile: Dockerfile
+      args:
+        - UID
+        - GID
+    tty: true
+    stdin_open: true
+    restart: always
+    volumes:
+      - ../:/workspace
