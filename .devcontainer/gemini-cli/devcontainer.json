@@ -1,0 +1,56 @@
+{
+	"name": "gemini-cli",
+	"dockerComposeFile": [
+		"../compose.yml"
+	],
+	"service": "gemini-cli",
+	"runServices": [
+		"gemini-cli"
+	],
+	"containerEnv": {
+		"EDITOR": "code --wait",
+		"LC_ALL": "C.UTF-8",
+		"TZ": "Asia/Tokyo"
+	},
+	"remoteEnv": {
+		"PATH": "/home/vscode/.local/share/aquaproj-aqua/bin:${containerEnv:PATH}",
+		"AQUA_CONFIG": "/workspace/.devcontainer/gemini-cli/aqua.yaml"
+	},
+	"remoteUser": "vscode",
+	"workspaceFolder": "/workspace",
+	"features": {
+		"ghcr.io/aquaproj/devcontainer-features/aqua-installer:0.1.5": {
+			"aqua_version": "v2.51.2"
+		},
+		"ghcr.io/devcontainers/features/docker-outside-of-docker:1": {},
+		"ghcr.io/devcontainers/features/git:1": {},
+		"ghcr.io/devcontainers/features/node:1": {},
+		"ghcr.io/devcontainers/features/sshd:1": {},
+		"ghcr.io/dhoeric/features/hadolint:1": {},
+		"ghcr.io/meaningful-ooo/devcontainer-features/fish:2": {}
+	},
+	"postCreateCommand": "./.devcontainer/gemini-cli/postCreateCommand.sh",
+	"customizations": {
+		"vscode": {
+			"settings": {
+				// Editor
+				"editor.formatOnSave": true,
+				// Files
+				"files.insertFinalNewline": true,
+				"files.trimFinalNewlines": true,
+				"files.trimTrailingWhitespace": true,
+				// Workspace
+				"autoOpenWorkspace.enableAutoOpenAlwaysFirst": true
+			},
+			"extensions": [
+				// Docker
+				"ms-azuretools.vscode-docker",
+				"exiasr.hadolint",
+				// Github Actions
+				"github.vscode-github-actions",
+				// Workspace
+				"zoma.vscode-auto-open-workspace"
+			]
+		}
+	}
+}
